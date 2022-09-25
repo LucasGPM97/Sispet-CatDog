@@ -401,7 +401,8 @@ void agendamento() {		//Definicao da funcao para os Agendamentos
 			printf("Especie do PET: ");
 			gets(epet);
 			printf("Raca do PET: ");
-			gets(rpet);			printf("Peso do PET:  ");
+			gets(rpet);			
+			printf("Peso do PET:  ");
 			scanf("%f", &ppet);
 			printf("Tipo de Servico!\n[1] Veterinario: R$100.00\n[2] Banho: RS40.00\n[3] Banho e Tosa: R$70.00\n");
 			scanf("%d", &tipo);
