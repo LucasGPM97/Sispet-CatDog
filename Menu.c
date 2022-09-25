@@ -2,18 +2,18 @@
 #include <string.h>
 
 
-void cadastroCliente();
-void cadastroFuncionario();
-void cadastroProduto();
-void agendamento();
-void sistemaVendas();
+void cadastroCliente();		// Prototipo da funcao para cadastrar Clientes.
+void cadastroFuncionario();	// Prototipo da funcao para cadastrar Funcionarios.
+void cadastroProduto();		// Prototipo da funcao para cadastrar Produtos.
+void agendamento();			// Prototipo da funcao para Agendamentos.
+void sistemaVendas();		// Prototipo da funcao para o Sistema de Vendas.
 
 
 int main(void) {
 
-	int decisao, sair = 0;
-
-menu:
+	int decisao;
+//Estrutura do menu principal do programa.
+menu: // Marcacao do menu
 	fflush(stdin);
 	system("cls");
 	printf("\t\t\t\tMenu Inicial\n\n");
@@ -25,37 +25,34 @@ menu:
 		switch (decisao) {
 
 		case 1:
-			cadastroCliente();
-			goto menu;
+			cadastroCliente();	// Chamada da funcao para a area de cadastro de clientes.
+			goto menu; // Ao sair da funcao volta a marcacao do menu.
 			break;
 
 		case 2:
-			cadastroFuncionario();
-			goto menu;
+			cadastroFuncionario();	// Chamada da funcao para a area de Cadastro de Funcionario.
+			goto menu;	// Ao sair da funcao volta a marcacao do menu.
 			break;
 
 		case 3:
-			cadastroProduto();
-			goto menu;
+			cadastroProduto();	// Chamada da funcao para a area de Cadastro de Produtos.
+			goto menu;	// Ao sair da funcao volta a marcacao do menu.
 			break;
 
 		case 4:
-			agendamento();
-			goto menu;
+			agendamento();	// Chamada da funcao para a area de Agendamento de Servicos.
+			goto menu;	// Ao sair da funcao volta a marcacao do menu
 			break;
 
 		case 5:
-			sistemaVendas();
-			goto menu;
+			sistemaVendas();	// Chamada da funcao para a area de Vendas.
+			goto menu;	// Ao sair da funcao volta a marcacao do menu.
 			break;
 
-		case 6:
-			sair = 1;
+		case 6:		// Opcao para fechar o programa, ao selecionar essa opcao o mesmo e encerrado.
 			break;
 
-
-
-		default:
+		default:	// qualquer outra opcao nao disponivel volta para a marcacao do menu
 			goto menu;
 			break;
 
@@ -64,14 +61,14 @@ menu:
 	
 	
 	system("cls");
-	printf("\n\nPrograma Finalizado!\n\n");
+	printf("\n\nPrograma Finalizado!\n\n");	// Fim da Execucao.
 
 	return 0;
 
 }
 
 
-void cadastroCliente() {
+void cadastroCliente() {		// Definicao da funcao para cadastrar clientes.
 
 
 	//Variavel Generica
@@ -153,7 +150,7 @@ void cadastroCliente() {
 		} while (decisao != 1);
 
 
-		printf("Deseja cadastrar um cartao?\n[1]Sim [2]Nao\n");		// Opção de adicionar cartao, se escolher sim entra na proxima estrutura, se nao pula essa etapa.
+		printf("Deseja cadastrar um cartao?\n[1]Sim [2]Nao\n");		// Opcao de adicionar cartao, se escolher sim entra na proxima estrutura, se nao pula essa etapa.
 		scanf("%d", &decisao);
 		system("cls");
 		cartao = ' ';
@@ -186,7 +183,7 @@ void cadastroCliente() {
 		}
 
 
-		printf("Deseja cadastrar um PET?\n[1]Sim [2]Nao\n");		// Opção de adicionar PET, se escolher sim entra na proxima estrutura, se nao pula essa etapa.
+		printf("Deseja cadastrar um PET?\n[1]Sim [2]Nao\n");		// Opcao de adicionar PET, se escolher sim entra na proxima estrutura, se nao pula essa etapa.
 		scanf("%d", &decisao);
 		system("cls");
 		pet = ' ';
@@ -236,7 +233,7 @@ void cadastroCliente() {
 				printf("Nome no cartao: %s\nNumero do cartao: %s\nData de expiracao: %s\nCVV: %d", nomecart, numcart, dtexp, cvv);
 			}
 
-			if (pet == 'P') {		//Dadps do PET, so mostra na tela se o PET foi cadastrado
+			if (pet == 'P') {		//Dados do PET, so mostra na tela se o PET foi cadastrado
 				printf("\n\t\t\tInformacoes do PET:\n\n");
 				printf("Nome do pet: %s\nEspecie do PET: %s\nRaca do PET: %s\nData de nascimento do PET: %s\nPeso do PET: %.2f\nO PET possui cartao de vacina em dia? [%c]", petN, petE, petR, petDTN, petP, petCV);
 			}
@@ -258,8 +255,8 @@ void cadastroCliente() {
 }
 
 
-void cadastroFuncionario() {
-
+void cadastroFuncionario() {		// Definicao da Funcao para Cadastrar Funcionarios.
+	//Variaveis do funcionario.
 	char nome[50], uf[10], cidade[50], bairro[50], complemento[20], cargo[50], endereco[50], numero[10];
 	int cpf, cep, telefone, decisao;
 	float salario;
@@ -322,7 +319,7 @@ void cadastroFuncionario() {
 }
 
 
-void cadastroProduto() {
+void cadastroProduto() {		//Definicao da funcao para Cadastrar Produtos.
 
 	char produtoN[30], produtoD[50], produtoM[30];
 	int produtoQ, produtoDTV, produtoL, produtoCB, decisao;
@@ -389,7 +386,7 @@ void cadastroProduto() {
 }
 
 
-void agendamento() {
+void agendamento() {		//Definicao da funcao para os Agendamentos
 
 	char npet[40], rpet[40], epet[40], servico[50];
 	int tipo, decisaoA;
@@ -475,7 +472,7 @@ void agendamento() {
 }
 
 
-void sistemaVendas() {
+void sistemaVendas() {		// Definicao da funcao para o Sistema de Vendas.
 
 	char nome[50], nomeC[20][50];
 	int  decisaoC, decisao, i = 0, j;
