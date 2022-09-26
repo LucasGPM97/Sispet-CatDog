@@ -445,7 +445,7 @@ void agendamento() {		//Definicao da funcao para os Agendamentos
 
 		} while (decisaoA != 1);
 
-		printf("\nDeseja salvar o cadastro?\n[1]Sim, [2]Nao: ");
+		printf("\nDeseja salvar o Agendamento?\n[1]Sim, [2]Nao: ");
 		scanf("%d", &decisaoA);
 		system("cls");
 
@@ -457,10 +457,10 @@ void agendamento() {		//Definicao da funcao para os Agendamentos
 		}
 		else {
 
-			printf("Cadastro cancelado!");
+			printf("Agendamento cancelado!");
 		}
 
-		printf("\n\nDeseja realizar outro cadastro?\n[1] Sim, [2] Nao ");
+		printf("\n\nDeseja realizar outro agendamento?\n[1] Sim, [2] Nao ");
 		scanf("%d", &decisaoA);
 
 	} while (decisaoA == 1);
