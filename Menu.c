@@ -2,76 +2,74 @@
 #include <string.h>
 
 
-void cadastroCliente();
-void cadastroFuncionario();
-void cadastroProduto();
-void agendamento();
-void sistemaVendas();
+void cadastroCliente();		// Prototipo da funcao para cadastrar Clientes.
+void cadastroFuncionario();	// Prototipo da funcao para cadastrar Funcionarios.
+void cadastroProduto();		// Prototipo da funcao para cadastrar Produtos.
+void agendamento();		// Prototipo da funcao para Agendamentos.
+void sistemaVendas();		// Prototipo da funcao para o Sistema de Vendas.
 
 
 int main(void) {
 
-	int decisao, sair = 0;
-
-menu:
+	int decisao;
+	//Estrutura do menu principal do programa.
+menu: // Marcacao do menu
 	fflush(stdin);
 	system("cls");
 	printf("\t\t\t\tMenu Inicial\n\n");
 	printf("[1] Cadastro de cliente!\n[2] Cadastro de funcionario!\n[3] Cadastro de Produto!\n[4] Agendamento!\n[5] Sistema de Vendas!\n[6] Fechar o Programa!\n");
 	scanf("%d", &decisao);
 
-	
-
-		switch (decisao) {
-
-		case 1:
-			cadastroCliente();
-			goto menu;
-			break;
-
-		case 2:
-			cadastroFuncionario();
-			goto menu;
-			break;
-
-		case 3:
-			cadastroProduto();
-			goto menu;
-			break;
-
-		case 4:
-			agendamento();
-			goto menu;
-			break;
-
-		case 5:
-			sistemaVendas();
-			goto menu;
-			break;
-
-		case 6:
-			sair = 1;
-			break;
 
 
+	switch (decisao) {
 
-		default:
-			goto menu;
-			break;
+	case 1:
+		cadastroCliente();	// Chamada da funcao para a area de cadastro de clientes.
+		goto menu; // Ao sair da funcao volta a marcacao do menu na linha 16.
+		break;
 
-		}
+	case 2:
+		cadastroFuncionario();	// Chamada da funcao para a area de Cadastro de Funcionario.
+		goto menu;	// Ao sair da funcao volta a marcacao do menu na linha 16.
+		break;
 
-	
-	
+	case 3:
+		cadastroProduto();	// Chamada da funcao para a area de Cadastro de Produtos.
+		goto menu;	// Ao sair da funcao volta a marcacao do menu na linha 16.
+		break;
+
+	case 4:
+		agendamento();	// Chamada da funcao para a area de Agendamento de Servicos.
+		goto menu;	// Ao sair da funcao volta a marcacao do menu na linha 16.
+		break;
+
+	case 5:
+		sistemaVendas();	// Chamada da funcao para a area de Vendas.
+		goto menu;	// Ao sair da funcao volta a marcacao do menu na linha 16.
+		break;
+
+	case 6:		// Opcao para fechar o programa, ao selecionar essa opcao o mesmo e encerrado.
+		break;
+
+	default:	// qualquer outra opcao nao disponivel volta para a marcacao do menu na linha 16.
+		goto menu;
+		break;
+
+	}
+
+
+
 	system("cls");
-	printf("\n\nPrograma Finalizado!\n\n");
+	printf("\n\nPrograma Finalizado!\n\n");	// Fim da Execucao.
+	system("PAUSE");
 
 	return 0;
 
 }
 
 
-void cadastroCliente() {
+void cadastroCliente() {		// Definicao da funcao para cadastrar clientes.
 
 
 	//Variavel Generica
@@ -139,29 +137,29 @@ void cadastroCliente() {
 					printf("Confirme a senha: ");
 					gets(senha2);
 				}
-			} while (strcmp(senha1, senha2) != 0);
+			} while (strcmp(senha1, senha2) != 0); // volta a linha 131 enquanto as senhas sao diferente
 
 
 			system("cls");
-			printf("\n\t\t\tInformacoes do cadastro:\n\n");
+			printf("\n\t\t\tInformacoes do cadastro:\n\n");	// Impressao para verificar se os dados estao corretos.
 			printf("Email: %s\nNome: %s\nTelefone: %d\nCPF: %s\nEndereco: %d, %s %s, %s, %s, %s/%s\nSenha: %s\n", email, nome, telefone, cpf, cep, endereco, numero, complemento, bairro, cidade, uf, senha1);
 
 			printf("Os dados estao corretos?\n[1]Sim [2]Nao\n");
 			scanf("%d", &decisao);
 			system("cls");
 
-		} while (decisao != 1);
+		} while (decisao != 1); // se a opcao for diferente de 1 volta para a linha 93
 
 
-		printf("Deseja cadastrar um cartao?\n[1]Sim [2]Nao\n");		// Opção de adicionar cartao, se escolher sim entra na proxima estrutura, se nao pula essa etapa.
+		printf("Deseja cadastrar um cartao?\n[1]Sim [2]Nao\n");		// Opcao de adicionar cartao, se escolher sim entra na proxima estrutura, se nao pula essa etapa.
 		scanf("%d", &decisao);
 		system("cls");
-		cartao = ' ';
+		cartao = ' '; // Variavel para verificar se vai imprimir o cartao na linha 231.
 
 		if (decisao == 1) {		// Cadastro do cartao, se os dados estiverem corretos passa para a proxima etapa, caso contrario retorna a essa etapa.
 
 
-			do {
+			do { // Estrutura para cadastrar o cartao
 
 				fflush(stdin);
 				printf("\nNumero do cartao:  ");
@@ -174,27 +172,27 @@ void cadastroCliente() {
 				printf("Codigo de seguranca(CVV): ");
 				scanf("%d", &cvv);
 				system("cls");
-				cartao = 'P';
-				printf("\n\t\t\ttInformacoes do cartao:\n\n");
+				cartao = 'P'; // Se o cartao for cadastrado ele sera impresso na linha 231.
+				printf("\n\t\t\ttInformacoes do cartao:\n\n");	// Impressao para verificar se os dados estao corretos.
 				printf("Nome no cartao: %s\nNumero do cartao: %s\nData de expiracao: %s\nCVV: %d", nomecart, numcart, dtexp, cvv);
 				printf("\nOs dados estao corretos?\n[1]Sim [2]Nao\n");
 				scanf("%d", &decisao);
 				system("cls");
 
-			} while (decisao != 1);
+			} while (decisao != 1); // Se a decisao for diferente de 1 volta a linha 161
 
 		}
 
 
-		printf("Deseja cadastrar um PET?\n[1]Sim [2]Nao\n");		// Opção de adicionar PET, se escolher sim entra na proxima estrutura, se nao pula essa etapa.
+		printf("Deseja cadastrar um PET?\n[1]Sim [2]Nao\n");	// Opcao de adicionar PET, se escolher sim entra na proxima estrutura, se nao pula essa etapa.
 		scanf("%d", &decisao);
 		system("cls");
-		pet = ' ';
+		pet = ' ';	// Variavel para verificar se vai imprimir os dados do pet na linha 236
 
 		if (decisao == 1) {		// Cadastro do PET, se os dados estiverem corretos passa para a proxima etapa, caso contrario retorna a essa etapa.
 
 
-			do {
+			do {	// Estrutura para Cadastrar o PET
 				fflush(stdin);
 				printf("\nNome do PET:  ");
 				gets(petN);
@@ -210,24 +208,24 @@ void cadastroCliente() {
 				printf("Possui cartao de Vacina em dia? [s] ou [n]: ");
 				scanf("%c", &petCV);
 				system("cls");
-				pet = 'P';
-				printf("\n\t\t\tInformacoes do PET:\n\n");
+				pet = 'P';	// Se o Pet for cadastrado ele e impresso na linha 236.
+				printf("\n\t\t\tInformacoes do PET:\n\n");	// Impressao para verificar se os dados estao corretos.
 				printf("Nome do pet: %s\nEspecie do PET: %s\nRaca do PET: %s\nData de nascimento do PET: %s\nPeso do PET: %.2f\nO PET possui cartao de vacina em dia? [%c]", petN, petE, petR, petDTN, petP, petCV);
 				printf("\nOs dados estao corretos?\n[1]Sim [2]Nao\n");
 				scanf("%d", &decisao);
 				system("cls");
 
-			} while (decisao != 1);
+			} while (decisao != 1);	// Se a decisao for diferente de 1 volta a linha 194.
 
 		}
 
 
-		printf("\nDeseja salvar o cadastro?\n[1]Sim, [2]Nao\n");		// Etapa para confirmar o cadastro, se escolher sim o cadastro e efetuado e informa os dados do cadastro, se nao o mesmo e cancelado.
+		printf("\nDeseja salvar o cadastro?\n[1]Sim, [2]Nao\n");	// Etapa para confirmar o cadastro, se escolher sim o cadastro e efetuado e informa os dados do cadastro, se nao o mesmo e cancelado.
 		scanf("%d", &decisao);
 		system("cls");
 
 		if (decisao == 1) {
-			printf("\t\t\tCadastro efetuado com sucesso!\n\n");		//Dados do cliente
+			printf("\t\t\tCadastro efetuado com sucesso!\n\n");	//Dados do cliente
 			printf("\n\t\t\tInformacoes do cadastro:\n\n");
 			printf("Email: %s\nNome: %s\nTelefone: %d\nCPF: %s\nEndereco: %d, %s %s, %s, %s, %s/%s\nSenha: %s\n", email, nome, telefone, cpf, cep, endereco, numero, complemento, bairro, cidade, uf, senha1);
 
@@ -236,34 +234,32 @@ void cadastroCliente() {
 				printf("Nome no cartao: %s\nNumero do cartao: %s\nData de expiracao: %s\nCVV: %d", nomecart, numcart, dtexp, cvv);
 			}
 
-			if (pet == 'P') {		//Dadps do PET, so mostra na tela se o PET foi cadastrado
+			if (pet == 'P') {		//Dados do PET, so mostra na tela se o PET foi cadastrado
 				printf("\n\t\t\tInformacoes do PET:\n\n");
 				printf("Nome do pet: %s\nEspecie do PET: %s\nRaca do PET: %s\nData de nascimento do PET: %s\nPeso do PET: %.2f\nO PET possui cartao de vacina em dia? [%c]", petN, petE, petR, petDTN, petP, petCV);
 			}
 
 		}
 		else {
-			printf("Cadastro cancelado!");	//
+			printf("Cadastro cancelado!");	// Cadastro foi cancelado!.
 		}
 
-		// Etapa para realizar um novo cadastro, se escolher sim volta ao inicio desse bloco, se nao esse bloco e finalizado
 		printf("\n\nDeseja realizar outro cadastro?\n[1] Sim, [2] Nao\n");
 		scanf("%d", &decisao);
 
-	} while (decisao == 1);
-
-
+	} while (decisao == 1); // Se a decisao for igual a 1 volta para a linha 90.
 
 	return;
-}
+} // Fim da funcao cadastroCliente();.
 
 
-void cadastroFuncionario() {
-
+void cadastroFuncionario() {		// Definicao da Funcao para Cadastrar Funcionarios.
+	//Variaveis do funcionario.
 	char nome[50], uf[10], cidade[50], bairro[50], complemento[20], cargo[50], endereco[50], numero[10];
 	int cpf, cep, telefone, decisao;
 	float salario;
-	do {
+
+	do {	// Estrutura para cadastrar o Funcionario.
 		system("cls");
 		fflush(stdin);
 		printf("\t\t\tCadastro Funcionario\n\n");
@@ -299,39 +295,38 @@ void cadastroFuncionario() {
 
 		system("cls");
 
-		printf("\n\t\t\tInformacoes do cadastro:\n\n");
+		printf("\n\t\t\tInformacoes do cadastro:\n\n");	// Imprime os dados do Funcionario para Verificar se estao corretos.
 		printf("Nome: %s\nTelefone: %d\nCPF: %d\nCargo: %s\nSalario: R$%.2f\nEndereco: %d, %s %s, %s, %s, %s/%s\n", nome, telefone, cpf, cargo, salario, cep, endereco, numero, complemento, bairro, cidade, uf);
 		printf("\nDeseja salvar o cadastro?\n[1]Sim, [2]Nao\n");
 		scanf("%d", &decisao);
 		system("cls");
 
-		if (decisao == 1) {
+		if (decisao == 1) { // se a decisao for igual(==) a 1 o cadastro e salvo e as informacoes sao mostradas na tela.
 			printf("\t\t\tCadastro efetuado com sucesso!\n\n");
 			printf("\n\t\t\tInformacoes do cadastro:\n\n");
 			printf("Nome: %s\nTelefone: %d\nCPF: %d\nCargo: %s\nSalario: R$%.2f\nEndereco: %d, %s %s, %s, %s, %s/%s\n", nome, telefone, cpf, cargo, salario, cep, endereco, numero, complemento, bairro, cidade, uf);
 		}
-		else {
+		else { // Se a decisao for diferente(!=) de 1 o cadastro e cancelado.
 			printf("Cadastro cancelado!");
 		}
 		printf("\n\nDeseja realizar outro cadastro:\n[1] Sim, [2] Nao\n");
 		scanf("%d", &decisao);
 
-	} while (decisao == 1);
+	} while (decisao == 1); // Se a decisao for igual (==) a 1 retorna a linha 261
 
 	return;
-}
+} // Fim da funcao de cadastroFuncionario();
 
 
-void cadastroProduto() {
-
+void cadastroProduto() {		// Definicao da funcao para Cadastrar Produtos.
+	// Variaveis do produto
 	char produtoN[30], produtoD[50], produtoM[30];
 	int produtoQ, produtoDTV, produtoL, produtoCB, decisao;
 	float produtoP;
 
+	do {	// Estrutura para cadastrar o produto.
 
-	do {
-
-		do {
+		do {	// Estrutura para verificar os dados do produto.
 
 			system("cls");
 			fflush(stdin);
@@ -355,26 +350,26 @@ void cadastroProduto() {
 			scanf("%f", &produtoP);
 
 			system("cls");
-			printf("\t\t\tInformacoes do cadastro:\n\n");
+			printf("\t\t\tInformacoes do cadastro:\n\n"); // Imprime os dados do produto para verificar se esta correto.
 			printf("Nome: %s\nMarca: %s\nDescricao: %s\nCodigo de Barras: %d\nLote: %d\nData de Validade: %d\nQuantidade: %d\nValor: R$ %.2f", produtoN, produtoM, produtoD, produtoCB, produtoL, produtoDTV, produtoQ, produtoP);
 
 			printf("\nOs dados estao corretos?\n[1]Sim [2]Nao\n");
 			scanf("%d", &decisao);
 			system("cls");
-		} while (decisao != 1);
+		} while (decisao != 1);	// Se a decisao for diferente de 1 volta a linha 328.
 
 		printf("\nDeseja salvar o cadastro?\n[1]Sim, [2]Nao\n");
 		scanf("%d", &decisao);
 		system("cls");
 
-		if (decisao == 1) {
+		if (decisao == 1) {	// Se a decisao for 1 o cadastro e efetuado e os dados sao informados na tela.
 
 			printf("\t\t\tCadastro efetuado com sucesso!\n\n");
 			printf("\t\t\tInformacoes do cadastro:\n\n");
 			printf("Nome: %s\nMarca: %s\nDescricao: %s\nCodigo de Barras: %d\nLote: %d\nData de Validade: %d\nQuantidade: %d\nValor: R$ %.2f", produtoN, produtoM, produtoD, produtoCB, produtoL, produtoDTV, produtoQ, produtoP);
 
 		}
-		else {
+		else {	// Se a decisao for diferente de 1 o cadastro e cancelado.
 
 			printf("Cadastro cancelado!");
 		}
@@ -382,15 +377,15 @@ void cadastroProduto() {
 		printf("\n\nDeseja realizar outro cadastro?\n[1] Sim, [2] Nao\n");
 		scanf("%d", &decisao);
 
-	} while (decisao == 1);
+	} while (decisao == 1);	// Se a decisao for igual a 1 volta para a linha 326.
 
 	return;
 
-}
+}	// Fim da funcao cadastroProduto.
 
 
-void agendamento() {
-
+void agendamento() {		//Definicao da funcao para os Agendamentos
+	//Variavei do agendamento.
 	char npet[40], rpet[40], epet[40], servico[50];
 	int tipo, decisaoA;
 	float valor, ppet, horario;
@@ -407,7 +402,8 @@ void agendamento() {
 			printf("Especie do PET: ");
 			gets(epet);
 			printf("Raca do PET: ");
-			gets(rpet);			printf("Peso do PET:  ");
+			gets(rpet);
+			printf("Peso do PET:  ");
 			scanf("%f", &ppet);
 			printf("Tipo de Servico!\n[1] Veterinario: R$100.00\n[2] Banho: RS40.00\n[3] Banho e Tosa: R$70.00\n");
 			scanf("%d", &tipo);
@@ -450,7 +446,7 @@ void agendamento() {
 
 		} while (decisaoA != 1);
 
-		printf("\nDeseja salvar o cadastro?\n[1]Sim, [2]Nao: ");
+		printf("\nDeseja salvar o Agendamento?\n[1]Sim, [2]Nao: ");
 		scanf("%d", &decisaoA);
 		system("cls");
 
@@ -462,10 +458,10 @@ void agendamento() {
 		}
 		else {
 
-			printf("Cadastro cancelado!");
+			printf("Agendamento cancelado!");
 		}
 
-		printf("\n\nDeseja realizar outro cadastro?\n[1] Sim, [2] Nao ");
+		printf("\n\nDeseja realizar outro agendamento?\n[1] Sim, [2] Nao ");
 		scanf("%d", &decisaoA);
 
 	} while (decisaoA == 1);
@@ -475,16 +471,16 @@ void agendamento() {
 }
 
 
-void sistemaVendas() {
+void sistemaVendas() {		// Definicao da funcao para o Sistema de Vendas.
 
 	char nome[50], nomeC[20][50];
 	int  decisaoC, decisao, i = 0, j;
 	float valor, valorC[20], total;
-
+inicio:
 	do {
 
 		i = 0;
-
+	venda:
 		do {
 
 			system("cls");
@@ -610,10 +606,13 @@ void sistemaVendas() {
 
 		printf("\nTotal: R$%.2f", total);
 
-		printf("\n\nDeseja efetuar a venda?\n[1]Sim [2]Nao\n");
+		printf("\n\n[1] Efetuar venda!\n[2] Cancelar venda!\n[3]Voltar ao menu de vendas!\n[4] Limpar o carrinho!\n");
 		scanf("%d", &decisao);
 
-		if (decisao == 1) {
+		switch (decisao) {
+
+		case 1:
+
 			total = 0;
 			system("cls");
 			printf("\t\t\tRecibo!\n\n");
@@ -624,9 +623,22 @@ void sistemaVendas() {
 			}
 
 			printf("\nTotal: R$%.2f", total);
-		}
-		else if (decisao != 1) {
+			break;
+
+		case 2:
+			system("cls");
 			printf("Compra Cancelada!");
+			break;
+
+		case 3:
+
+			goto venda;
+			break;
+
+		case 4:
+
+			goto inicio;
+			break;
 		}
 
 		printf("\n\nDeseja realizar outra venda?\n[1]Sim [2]Nao\n");
