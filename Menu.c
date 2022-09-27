@@ -12,7 +12,7 @@ void sistemaVendas();		// Prototipo da funcao para o Sistema de Vendas.
 int main(void) {
 
 	int decisao;
-//Estrutura do menu principal do programa.
+	//Estrutura do menu principal do programa.
 menu: // Marcacao do menu
 	fflush(stdin);
 	system("cls");
@@ -20,48 +20,49 @@ menu: // Marcacao do menu
 	printf("[1] Cadastro de cliente!\n[2] Cadastro de funcionario!\n[3] Cadastro de Produto!\n[4] Agendamento!\n[5] Sistema de Vendas!\n[6] Fechar o Programa!\n");
 	scanf("%d", &decisao);
 
-	
 
-		switch (decisao) {
 
-		case 1:
-			cadastroCliente();	// Chamada da funcao para a area de cadastro de clientes.
-			goto menu; // Ao sair da funcao volta a marcacao do menu na linha 16.
-			break;
+	switch (decisao) {
 
-		case 2:
-			cadastroFuncionario();	// Chamada da funcao para a area de Cadastro de Funcionario.
-			goto menu;	// Ao sair da funcao volta a marcacao do menu na linha 16.
-			break;
+	case 1:
+		cadastroCliente();	// Chamada da funcao para a area de cadastro de clientes.
+		goto menu; // Ao sair da funcao volta a marcacao do menu na linha 16.
+		break;
 
-		case 3:
-			cadastroProduto();	// Chamada da funcao para a area de Cadastro de Produtos.
-			goto menu;	// Ao sair da funcao volta a marcacao do menu na linha 16.
-			break;
+	case 2:
+		cadastroFuncionario();	// Chamada da funcao para a area de Cadastro de Funcionario.
+		goto menu;	// Ao sair da funcao volta a marcacao do menu na linha 16.
+		break;
 
-		case 4:
-			agendamento();	// Chamada da funcao para a area de Agendamento de Servicos.
-			goto menu;	// Ao sair da funcao volta a marcacao do menu na linha 16.
-			break;
+	case 3:
+		cadastroProduto();	// Chamada da funcao para a area de Cadastro de Produtos.
+		goto menu;	// Ao sair da funcao volta a marcacao do menu na linha 16.
+		break;
 
-		case 5:
-			sistemaVendas();	// Chamada da funcao para a area de Vendas.
-			goto menu;	// Ao sair da funcao volta a marcacao do menu na linha 16.
-			break;
+	case 4:
+		agendamento();	// Chamada da funcao para a area de Agendamento de Servicos.
+		goto menu;	// Ao sair da funcao volta a marcacao do menu na linha 16.
+		break;
 
-		case 6:		// Opcao para fechar o programa, ao selecionar essa opcao o mesmo e encerrado.
-			break;
+	case 5:
+		sistemaVendas();	// Chamada da funcao para a area de Vendas.
+		goto menu;	// Ao sair da funcao volta a marcacao do menu na linha 16.
+		break;
 
-		default:	// qualquer outra opcao nao disponivel volta para a marcacao do menu na linha 16.
-			goto menu;
-			break;
+	case 6:		// Opcao para fechar o programa, ao selecionar essa opcao o mesmo e encerrado.
+		break;
 
-		}
+	default:	// qualquer outra opcao nao disponivel volta para a marcacao do menu na linha 16.
+		goto menu;
+		break;
 
-	
-	
+	}
+
+
+
 	system("cls");
 	printf("\n\nPrograma Finalizado!\n\n");	// Fim da Execucao.
+	system("PAUSE");
 
 	return 0;
 
@@ -401,7 +402,7 @@ void agendamento() {		//Definicao da funcao para os Agendamentos
 			printf("Especie do PET: ");
 			gets(epet);
 			printf("Raca do PET: ");
-			gets(rpet);			
+			gets(rpet);
 			printf("Peso do PET:  ");
 			scanf("%f", &ppet);
 			printf("Tipo de Servico!\n[1] Veterinario: R$100.00\n[2] Banho: RS40.00\n[3] Banho e Tosa: R$70.00\n");
@@ -445,7 +446,7 @@ void agendamento() {		//Definicao da funcao para os Agendamentos
 
 		} while (decisaoA != 1);
 
-		printf("\nDeseja salvar o cadastro?\n[1]Sim, [2]Nao: ");
+		printf("\nDeseja salvar o Agendamento?\n[1]Sim, [2]Nao: ");
 		scanf("%d", &decisaoA);
 		system("cls");
 
@@ -457,10 +458,10 @@ void agendamento() {		//Definicao da funcao para os Agendamentos
 		}
 		else {
 
-			printf("Cadastro cancelado!");
+			printf("Agendamento cancelado!");
 		}
 
-		printf("\n\nDeseja realizar outro cadastro?\n[1] Sim, [2] Nao ");
+		printf("\n\nDeseja realizar outro agendamento?\n[1] Sim, [2] Nao ");
 		scanf("%d", &decisaoA);
 
 	} while (decisaoA == 1);
@@ -475,11 +476,11 @@ void sistemaVendas() {		// Definicao da funcao para o Sistema de Vendas.
 	char nome[50], nomeC[20][50];
 	int  decisaoC, decisao, i = 0, j;
 	float valor, valorC[20], total;
-
+inicio:
 	do {
 
 		i = 0;
-
+	venda:
 		do {
 
 			system("cls");
@@ -605,10 +606,13 @@ void sistemaVendas() {		// Definicao da funcao para o Sistema de Vendas.
 
 		printf("\nTotal: R$%.2f", total);
 
-		printf("\n\nDeseja efetuar a venda?\n[1]Sim [2]Nao\n");
+		printf("\n\n[1] Efetuar venda!\n[2] Cancelar venda!\n[3] Voltar ao menu de vendas!\n[4] Limpar o carrinho!\n");
 		scanf("%d", &decisao);
 
-		if (decisao == 1) {
+		switch (decisao) {
+
+		case 1:
+
 			total = 0;
 			system("cls");
 			printf("\t\t\tRecibo!\n\n");
@@ -619,9 +623,22 @@ void sistemaVendas() {		// Definicao da funcao para o Sistema de Vendas.
 			}
 
 			printf("\nTotal: R$%.2f", total);
-		}
-		else if (decisao != 1) {
+			break;
+
+		case 2:
+			system("cls");
 			printf("Compra Cancelada!");
+			break;
+
+		case 3:
+
+			goto venda;
+			break;
+
+		case 4:
+
+			goto inicio;
+			break;
 		}
 
 		printf("\n\nDeseja realizar outra venda?\n[1]Sim [2]Nao\n");
@@ -632,4 +649,5 @@ void sistemaVendas() {		// Definicao da funcao para o Sistema de Vendas.
 	return;
 
 }
+
 
