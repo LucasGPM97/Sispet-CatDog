@@ -606,7 +606,7 @@ inicio:
 
 		printf("\nTotal: R$%.2f", total);
 
-		printf("\n\n[1] Efetuar venda!\n[2] Cancelar venda!\n[3]Voltar ao menu de vendas!\n[4] Limpar o carrinho!\n");
+		printf("\n\n[1] Efetuar venda!\n[2] Cancelar venda!\n[3] Voltar ao menu de vendas!\n[4] Limpar o carrinho!\n");
 		scanf("%d", &decisao);
 
 		switch (decisao) {
@@ -649,4 +649,5 @@ inicio:
 	return;
 
 }
+
 
