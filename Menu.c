@@ -61,7 +61,7 @@ menu: // Marcacao do menu
 
 
 	system("cls");
-	printf("\n\nPrograma Finalizado!\n\n");	// Fim da Execucao.
+	printf("\n\nPrograma Finalizado!\nVolte Sempre!\n\n");	// Fim da Execucao.
 	system("PAUSE");
 
 	return 0;
@@ -76,16 +76,16 @@ void cadastroCliente() {		// Definicao da funcao para cadastrar clientes.
 	int decisao;
 
 	//Variaveis do Cliente
-	char nome[50], email[50], cpf[15], uf[10], cidade[50], bairro[50], complemento[20], senha1[50], senha2[50], endereco[50], numero[10];
-	int cep;
+	char nome[50], email[50], cpf[15], cep[10], uf[10], cidade[50], bairro[50], complemento[20], senha1[50], senha2[50], endereco[50], numero[10];
+	
 
 	//variaveis Cartao
-	char nomecart[50], cartao, dtexp[15], numcart[50];
-	int cvv, telefone;
+	char nomecart[50], cartao, dtexp[15], numcart[50], telefone[20], cvv[10];
+	
 
 	//Variaveis Pet
-	char pet, petN[30], petE[30], petR[30], petDTN[15], petCV;
-	float petP;
+	char pet, petN[30], petE[30], petR[30], petDTN[15], petCV, petP[10];
+	
 
 
 	do {		// Cadastro do cliente
@@ -102,13 +102,13 @@ void cadastroCliente() {		// Definicao da funcao para cadastrar clientes.
 			printf("Nome: ");
 			gets(nome);
 			printf("Telefone: ");
-			scanf("%d", &telefone);
+			gets(telefone);
 			fflush(stdin);
 			printf("CPF: ");
 			gets(cpf);
 			printf("\n\t\t\tInformacoes sobre endereco:\n\n");
 			printf("CEP: ");
-			scanf("%d", &cep);
+			gets(cep);
 			fflush(stdin);
 			printf("UF: ");
 			gets(uf);
@@ -142,7 +142,7 @@ void cadastroCliente() {		// Definicao da funcao para cadastrar clientes.
 
 			system("cls");
 			printf("\n\t\t\tInformacoes do cadastro:\n\n");	// Impressao para verificar se os dados estao corretos.
-			printf("Email: %s\nNome: %s\nTelefone: %d\nCPF: %s\nEndereco: %d, %s %s, %s, %s, %s/%s\nSenha: %s\n", email, nome, telefone, cpf, cep, endereco, numero, complemento, bairro, cidade, uf, senha1);
+			printf("Email: %s\nNome: %s\nTelefone: %s\nCPF: %s\nEndereco: %s, %s %s, %s, %s, %s/%s\nSenha: %s\n", email, nome, telefone, cpf, cep, endereco, numero, complemento, bairro, cidade, uf, senha1);
 
 			printf("Os dados estao corretos?\n[1]Sim [2]Nao\n");
 			scanf("%d", &decisao);
@@ -170,11 +170,11 @@ void cadastroCliente() {		// Definicao da funcao para cadastrar clientes.
 				printf("Data de expiracao: ");
 				gets(dtexp);
 				printf("Codigo de seguranca(CVV): ");
-				scanf("%d", &cvv);
+				gets(cvv);
 				system("cls");
 				cartao = 'P'; // Se o cartao for cadastrado ele sera impresso na linha 231.
 				printf("\n\t\t\ttInformacoes do cartao:\n\n");	// Impressao para verificar se os dados estao corretos.
-				printf("Nome no cartao: %s\nNumero do cartao: %s\nData de expiracao: %s\nCVV: %d", nomecart, numcart, dtexp, cvv);
+				printf("Nome no cartao: %s\nNumero do cartao: %s\nData de expiracao: %s\nCVV: %s", nomecart, numcart, dtexp, cvv);
 				printf("\nOs dados estao corretos?\n[1]Sim [2]Nao\n");
 				scanf("%d", &decisao);
 				system("cls");
@@ -203,14 +203,14 @@ void cadastroCliente() {		// Definicao da funcao para cadastrar clientes.
 				printf("Data de Nascimento PET: ");
 				gets(petDTN);
 				printf("Peso do PET: ");
-				scanf("%f", &petP);
+				gets(petP);
 				fflush(stdin);
 				printf("Possui cartao de Vacina em dia? [s] ou [n]: ");
 				scanf("%c", &petCV);
 				system("cls");
 				pet = 'P';	// Se o Pet for cadastrado ele e impresso na linha 236.
 				printf("\n\t\t\tInformacoes do PET:\n\n");	// Impressao para verificar se os dados estao corretos.
-				printf("Nome do pet: %s\nEspecie do PET: %s\nRaca do PET: %s\nData de nascimento do PET: %s\nPeso do PET: %.2f\nO PET possui cartao de vacina em dia? [%c]", petN, petE, petR, petDTN, petP, petCV);
+				printf("Nome do pet: %s\nEspecie do PET: %s\nRaca do PET: %s\nData de nascimento do PET: %s\nPeso do PET: %s kg\nO PET possui cartao de vacina em dia? [%c]", petN, petE, petR, petDTN, petP, petCV);
 				printf("\nOs dados estao corretos?\n[1]Sim [2]Nao\n");
 				scanf("%d", &decisao);
 				system("cls");
@@ -227,16 +227,16 @@ void cadastroCliente() {		// Definicao da funcao para cadastrar clientes.
 		if (decisao == 1) {
 			printf("\t\t\tCadastro efetuado com sucesso!\n\n");	//Dados do cliente
 			printf("\n\t\t\tInformacoes do cadastro:\n\n");
-			printf("Email: %s\nNome: %s\nTelefone: %d\nCPF: %s\nEndereco: %d, %s %s, %s, %s, %s/%s\nSenha: %s\n", email, nome, telefone, cpf, cep, endereco, numero, complemento, bairro, cidade, uf, senha1);
+			printf("Email: %s\nNome: %s\nTelefone: %s\nCPF: %s\nEndereco: %s, %s %s, %s, %s, %s/%s\nSenha: %s\n", email, nome, telefone, cpf, cep, endereco, numero, complemento, bairro, cidade, uf, senha1);
 
 			if (cartao == 'P') {		//Dados do Cartao, so mostra na tela se o cartao foi cadastrado
 				printf("\n\t\t\tInformacoes do cartao:\n\n");
-				printf("Nome no cartao: %s\nNumero do cartao: %s\nData de expiracao: %s\nCVV: %d", nomecart, numcart, dtexp, cvv);
+				printf("Nome no cartao: %s\nNumero do cartao: %s\nData de expiracao: %s\nCVV: %s", nomecart, numcart, dtexp, cvv);
 			}
 
 			if (pet == 'P') {		//Dados do PET, so mostra na tela se o PET foi cadastrado
 				printf("\n\t\t\tInformacoes do PET:\n\n");
-				printf("Nome do pet: %s\nEspecie do PET: %s\nRaca do PET: %s\nData de nascimento do PET: %s\nPeso do PET: %.2f\nO PET possui cartao de vacina em dia? [%c]", petN, petE, petR, petDTN, petP, petCV);
+				printf("Nome do pet: %s\nEspecie do PET: %s\nRaca do PET: %s\nData de nascimento do PET: %s\nPeso do PET: %s kg\nO PET possui cartao de vacina em dia? [%c]", petN, petE, petR, petDTN, petP, petCV);
 			}
 
 		}
@@ -255,8 +255,8 @@ void cadastroCliente() {		// Definicao da funcao para cadastrar clientes.
 
 void cadastroFuncionario() {		// Definicao da Funcao para Cadastrar Funcionarios.
 	//Variaveis do funcionario.
-	char nome[50], uf[10], cidade[50], bairro[50], complemento[20], cargo[50], endereco[50], numero[10];
-	int cpf, cep, telefone, decisao;
+	char nome[50], cpf[15], cep[10], telefone[15], uf[10], cidade[50], bairro[50], complemento[20], cargo[50], endereco[50], numero[10];
+	int decisao;
 	float salario;
 
 	do {	// Estrutura para cadastrar o Funcionario.
@@ -267,17 +267,18 @@ void cadastroFuncionario() {		// Definicao da Funcao para Cadastrar Funcionarios
 		printf("Nome: ");
 		gets(nome);
 		printf("Telefone: ");
-		scanf("%d", &telefone);
+		gets(telefone);
 		printf("CPF: ");
-		scanf("%d", &cpf);
+		gets(cpf);
 		fflush(stdin);
 		printf("Cargo: ");
 		gets(cargo);
 		printf("Salario: R$");
 		scanf("%f", &salario);
 		printf("\n\t\t\tInformacoes sobre endereco:\n\n");
+		fflush(stdin);
 		printf("CEP: ");
-		scanf("%d", &cep);
+		gets(cep);
 		fflush(stdin);
 		printf("UF: ");
 		gets(uf);
@@ -296,7 +297,7 @@ void cadastroFuncionario() {		// Definicao da Funcao para Cadastrar Funcionarios
 		system("cls");
 
 		printf("\n\t\t\tInformacoes do cadastro:\n\n");	// Imprime os dados do Funcionario para Verificar se estao corretos.
-		printf("Nome: %s\nTelefone: %d\nCPF: %d\nCargo: %s\nSalario: R$%.2f\nEndereco: %d, %s %s, %s, %s, %s/%s\n", nome, telefone, cpf, cargo, salario, cep, endereco, numero, complemento, bairro, cidade, uf);
+		printf("Nome: %s\nTelefone: %s\nCPF: %s\nCargo: %s\nSalario: R$%.2f\nEndereco: %s, %s %s, %s, %s, %s/%s\n", nome, telefone, cpf, cargo, salario, cep, endereco, numero, complemento, bairro, cidade, uf);
 		printf("\nDeseja salvar o cadastro?\n[1]Sim, [2]Nao\n");
 		scanf("%d", &decisao);
 		system("cls");
@@ -320,8 +321,8 @@ void cadastroFuncionario() {		// Definicao da Funcao para Cadastrar Funcionarios
 
 void cadastroProduto() {		// Definicao da funcao para Cadastrar Produtos.
 	// Variaveis do produto
-	char produtoN[30], produtoD[50], produtoM[30];
-	int produtoQ, produtoDTV, produtoL, produtoCB, decisao;
+	char produtoN[30], produtoD[50], produtoM[30], produtoDTV[15], produtoL[20], produtoCB[50];
+	int produtoQ, decisao;
 	float produtoP;
 
 	do {	// Estrutura para cadastrar o produto.
@@ -338,12 +339,12 @@ void cadastroProduto() {		// Definicao da funcao para Cadastrar Produtos.
 			gets(produtoM);
 			printf("Descricao do produto: ");
 			gets(produtoD);
-			printf("Codigo de barras do produto(numero): ");
-			scanf("%d", &produtoCB);
+			printf("Codigo de barras do produto: ");
+			gets(produtoCB);
 			printf("Lote do produto: ");
-			scanf("%d", &produtoL);
+			gets(produtoL);
 			printf("Data de validade do produto: ");
-			scanf("%d", &produtoDTV);
+			gets(produtoDTV);
 			printf("Quantidade: ");
 			scanf("%d", &produtoQ);
 			printf("Preco unitario: ");
@@ -351,7 +352,7 @@ void cadastroProduto() {		// Definicao da funcao para Cadastrar Produtos.
 
 			system("cls");
 			printf("\t\t\tInformacoes do cadastro:\n\n"); // Imprime os dados do produto para verificar se esta correto.
-			printf("Nome: %s\nMarca: %s\nDescricao: %s\nCodigo de Barras: %d\nLote: %d\nData de Validade: %d\nQuantidade: %d\nValor: R$ %.2f", produtoN, produtoM, produtoD, produtoCB, produtoL, produtoDTV, produtoQ, produtoP);
+			printf("Nome: %s\nMarca: %s\nDescricao: %s\nCodigo de Barras: %s\nLote: %s\nData de Validade: %s\nQuantidade: %d\nValor: R$ %.2f", produtoN, produtoM, produtoD, produtoCB, produtoL, produtoDTV, produtoQ, produtoP);
 
 			printf("\nOs dados estao corretos?\n[1]Sim [2]Nao\n");
 			scanf("%d", &decisao);
@@ -366,7 +367,7 @@ void cadastroProduto() {		// Definicao da funcao para Cadastrar Produtos.
 
 			printf("\t\t\tCadastro efetuado com sucesso!\n\n");
 			printf("\t\t\tInformacoes do cadastro:\n\n");
-			printf("Nome: %s\nMarca: %s\nDescricao: %s\nCodigo de Barras: %d\nLote: %d\nData de Validade: %d\nQuantidade: %d\nValor: R$ %.2f", produtoN, produtoM, produtoD, produtoCB, produtoL, produtoDTV, produtoQ, produtoP);
+			printf("Nome: %s\nMarca: %s\nDescricao: %s\nCodigo de Barras: %s\nLote: %s\nData de Validade: %s\nQuantidade: %d\nValor: R$ %.2f", produtoN, produtoM, produtoD, produtoCB, produtoL, produtoDTV, produtoQ, produtoP);
 
 		}
 		else {	// Se a decisao for diferente de 1 o cadastro e cancelado.
@@ -386,9 +387,9 @@ void cadastroProduto() {		// Definicao da funcao para Cadastrar Produtos.
 
 void agendamento() {		//Definicao da funcao para os Agendamentos
 	//Variavei do agendamento.
-	char npet[40], rpet[40], epet[40], servico[50];
+	char npet[40], rpet[40], epet[40], servico[50], ppet[10],dia[10], horario[10];
 	int tipo, decisaoA;
-	float valor, ppet, horario;
+	float valor;
 
 
 	do {
@@ -404,7 +405,7 @@ void agendamento() {		//Definicao da funcao para os Agendamentos
 			printf("Raca do PET: ");
 			gets(rpet);
 			printf("Peso do PET:  ");
-			scanf("%f", &ppet);
+			gets(ppet);
 			printf("Tipo de Servico!\n[1] Veterinario: R$100.00\n[2] Banho: RS40.00\n[3] Banho e Tosa: R$70.00\n");
 			scanf("%d", &tipo);
 			fflush(stdin);
@@ -433,12 +434,14 @@ void agendamento() {		//Definicao da funcao para os Agendamentos
 				}
 			} while (decisaoA != 1);
 
-			printf("Horario:[00.00] ");
-			scanf("%f", &horario);
+			printf("Data do agendamento: ");
+			gets(dia);
+			printf("Horario: ");
+			gets(horario);
 			system("cls");
 
 			printf("\t\t\tInformacoes do Agendamento!\n\n");
-			printf("Nome do PET: %s\nEspecie do PET: %s\nRaca do PET: %s\nPeso do PET: %.2f\nTipo de Sevico: %s\nValor: R$ %.2f\nHorario: %.2f Horas", npet, epet, rpet, ppet, servico, valor, horario);
+			printf("Nome do PET: %s\nEspecie do PET: %s\nRaca do PET: %s\nPeso do PET: %s kg\nTipo de Sevico: %s\nValor: R$ %.2f\nData: %s as %s Horas", npet, epet, rpet, ppet, servico, valor, dia, horario);
 
 			printf("\nOs dados estao corretos?\n[1]Sim [2]Nao ");
 			scanf("%d", &decisaoA);
@@ -454,7 +457,7 @@ void agendamento() {		//Definicao da funcao para os Agendamentos
 
 			printf("\t\t\tAgendamento Realizado com sucesso!\n\n");
 			printf("\t\t\tRecibo do Agendamento!\n\n");
-			printf("Nome do PET: %s\nEspecie do PET: %s\nRaca do PET: %s\nPeso do PET: %.2f\nTipo de Sevico: %s\nValor: R$ %.2f\nHorario: %.2f Horas", npet, epet, rpet, ppet, servico, valor, horario);
+			printf("Nome do PET: %s\nEspecie do PET: %s\nRaca do PET: %s\nPeso do PET: %s kg\nTipo de Sevico: %s\nValor: R$ %.2f\nData: %s as %s Horas", npet, epet, rpet, ppet, servico, valor, dia, horario);
 		}
 		else {
 
